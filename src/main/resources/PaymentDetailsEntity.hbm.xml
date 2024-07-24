@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.shop.ecommercesuperpoderoso.models.PaymentDetailsEntity" table="payment_details" schema="public"
+           catalog="e-commerce-superpoderoso">
+        <id name="id">
+            <column name="id" sql-type="integer"/>
+        </id>
+        <property name="orderId">
+            <column name="order_id" sql-type="integer" not-null="true"/>
+        </property>
+        <property name="amount">
+            <column name="amount" sql-type="double precision" precision="-1" not-null="true"/>
+        </property>
+        <property name="provider">
+            <column name="provider" sql-type="varchar" not-null="true"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="varchar" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

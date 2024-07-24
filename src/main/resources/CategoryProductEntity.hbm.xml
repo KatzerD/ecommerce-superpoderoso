@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.shop.ecommercesuperpoderoso.models.CategoryProductEntity" table="category_product" schema="public"
+           catalog="e-commerce-superpoderoso">
+        <composite-id mapped="true" class="com.shop.ecommercesuperpoderoso.models.CategoryProductEntityPK">
+            <key-property name="categoryId">
+                <column name="category_id" sql-type="integer"/>
+            </key-property>
+            <key-property name="productCategoryId">
+                <column name="product_category_id" sql-type="integer"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
