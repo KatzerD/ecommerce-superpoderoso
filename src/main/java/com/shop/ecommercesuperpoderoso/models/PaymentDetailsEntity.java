@@ -24,6 +24,10 @@ public class PaymentDetailsEntity {
     @Column(name = "status", nullable = true, length = -1)
     private String status;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderDetailsEntity orderDetails;
+
     public int getId() {
         return id;
     }

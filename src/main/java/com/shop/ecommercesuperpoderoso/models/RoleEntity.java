@@ -1,7 +1,9 @@
 package com.shop.ecommercesuperpoderoso.models;
 
 import jakarta.persistence.*;
+import org.apache.catalina.User;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +16,9 @@ public class RoleEntity {
     @Basic
     @Column(name = "rol_name", nullable = true, length = -1)
     private String rolName;
+
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<UserEntity> users;
 
     public int getId() {
         return id;

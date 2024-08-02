@@ -2,6 +2,7 @@ package com.shop.ecommercesuperpoderoso.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -44,6 +45,13 @@ public class ProductEntity {
     @Basic
     @Column(name = "description", nullable = true, length = -1)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<OrderItemsEntity> orderItems;
 
     public int getId() {
         return id;

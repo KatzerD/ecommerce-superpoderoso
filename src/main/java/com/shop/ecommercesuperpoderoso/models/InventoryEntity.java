@@ -15,6 +15,9 @@ public class InventoryEntity {
     @Column(name = "quantity", nullable = true)
     private Integer quantity;
 
+    @OneToOne(mappedBy = "inventory")
+    private ProductEntity product;
+
     public int getId() {
         return id;
     }

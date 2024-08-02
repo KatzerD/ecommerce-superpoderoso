@@ -28,6 +28,10 @@ public class UserPaymentEntity {
     @Column(name = "expiry", nullable = true)
     private Date expiry;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
     public int getId() {
         return id;
     }

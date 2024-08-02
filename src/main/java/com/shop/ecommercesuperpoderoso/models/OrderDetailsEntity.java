@@ -2,6 +2,7 @@ package com.shop.ecommercesuperpoderoso.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +18,16 @@ public class OrderDetailsEntity {
     @Basic
     @Column(name = "total", nullable = true, precision = 0)
     private Double total;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @OneToMany(mappedBy = "orderDetails", cascade = CascadeType.ALL)
+    private List<OrderItemsEntity> orderItems;
+
+    @OneToMany(mappedBy = "orderDetails", cascade = CascadeType.ALL)
+    private List<PaymentDetailsEntity> paymentDetails;
 
     public int getId() {
         return id;

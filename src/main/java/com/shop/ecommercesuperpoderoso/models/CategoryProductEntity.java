@@ -17,6 +17,16 @@ public class CategoryProductEntity {
     @Column(name = "product_category_id", nullable = false)
     private int productCategoryId;
 
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity product;
+
     public int getCategoryId() {
         return categoryId;
     }

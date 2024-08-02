@@ -3,6 +3,7 @@ package com.shop.ecommercesuperpoderoso.models;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -30,6 +31,20 @@ public class UserEntity {
     @Basic
     @Column(name = "created_at", nullable = true)
     private Timestamp createdAt;
+
+    // Many-to-One con RoleEntity
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private RoleEntity role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<AddressEntity> addresses;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserPaymentEntity> userPayments;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<OrderDetailsEntity> orders;
 
     public int getId() {
         return id;

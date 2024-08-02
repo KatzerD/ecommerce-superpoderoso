@@ -2,6 +2,7 @@ package com.shop.ecommercesuperpoderoso.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +15,13 @@ public class CartEntity {
     @Basic
     @Column(name = "user_id", nullable = true)
     private Integer userId;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    private List<CartItemEntity> cartItems;
 
     public int getId() {
         return id;

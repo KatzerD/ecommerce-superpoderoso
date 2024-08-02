@@ -24,6 +24,14 @@ public class OrderItemsEntity {
     @Column(name = "quantity", nullable = true)
     private Integer quantity;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderDetailsEntity  orderDetails;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity product;
+
     public int getId() {
         return id;
     }

@@ -27,6 +27,10 @@ public class AddressEntity {
     @Column(name = "address_line", nullable = true, length = -1)
     private String addressLine;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
     public int getId() {
         return id;
     }
